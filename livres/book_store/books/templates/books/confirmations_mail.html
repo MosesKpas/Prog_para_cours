@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle Commande</title>
+</head>
+<body>
+    <h1>Nouvelle Commande</h1>
+    <p>Une nouvelle commande a été passée ! Voici les détails :</p>
+    <p><strong>Client:</strong> {{ commande.client.username }} ({{ email_client }})</p>
+    <p><strong>Titre du livre:</strong> {{ livre.titre }}</p>
+    <p><strong>Auteur:</strong> {{ livre.auteur }}</p>
+    <p><strong>Prix:</strong> {{ commande.prix }}€</p>
+    <p><strong>Date de la commande:</strong> {{ commande.date_commande|date:"d/m/Y H:i" }}</p>
+    <p>Cordialement,<br>FORCE.oneLib</p>
+</body>
+</html>

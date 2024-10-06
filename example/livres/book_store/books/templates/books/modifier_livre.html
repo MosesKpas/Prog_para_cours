@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le Livre</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Couleur de fond */
+            height: 100vh; /* Hauteur de la vue */
+            display: flex; /* Utiliser flexbox pour centrer */
+            justify-content: center; /* Centre horizontalement */
+            align-items: center; /* Centre verticalement */
+        }
+        .form-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px; /* Largeur maximale du formulaire */
+            width: 100%; /* Prend 100% de la largeur disponible */
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-align: center; /* Centre le titre */
+        }
+        .btn {
+            border-radius: 25px; /* Arrondir les coins des boutons */
+        }
+        .btn-link {
+            display: block; /* Affiche le lien comme un bloc */
+            text-align: center; /* Centre le texte */
+            margin-top: 15px; /* Marge au-dessus du lien Retour */
+            text-decoration: none; /* Enlève le soulignement */
+            color: #007bff; /* Couleur du lien */
+        }
+        .btn-link:hover {
+            text-decoration: underline; /* Soulignement au survol */
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Modifier le Livre</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Modifier</button>
+    </form>
+    <a href="{% url 'liste_livres' %}" class="btn btn-danger btn-block mt-3">Retour</a>
+</div>
+
+</body>
+</html>

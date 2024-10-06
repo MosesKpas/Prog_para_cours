@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FORCE.oneLib - Accueil</title>
+        <!-- Lien vers Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <style>
+            body,
+            html {
+                height: 100%;
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .bg {
+                background-image: url("https://culturepresse.fr/sites/default/files/static_pages/livre_librairie-5fa402100cf61.jpeg"); /* Image de fond */
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .navbar {
+                background-color: rgba(
+                    0,
+                    0,
+                    0,
+                    0.8
+                ) !important; /* Fond de la navbar semi-transparent */
+            }
+            .navbar-brand,
+            .nav-link {
+                color: white !important;
+            }
+            .container {
+                position: relative;
+                z-index: 2;
+            }
+            .caption {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                text-align: center;
+                background-color: rgba(
+                    0,
+                    0,
+                    0,
+                    0.5
+                ); /* Superposition semi-transparente pour le texte */
+                padding: 20px;
+                border-radius: 8px;
+            }
+            .btn-custom {
+                background-color: #007bff;
+                color: white;
+            }
+            .btn-custom:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">FORCE.oneLib</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Background with caption -->
+        <div class="bg">
+            <div class="caption">
+                <h1>Bienvenue à FORCE.oneLib</h1>
+                <p>
+                    Votre destination ultime pour des livres captivants et
+                    enrichissants
+                </p>
+                <a href="{% url 'signup' %}" class="btn btn-custom btn-lg mt-3"
+                    >Connexion</a
+                >
+            </div>
+        </div>
+
+        <!-- Lien vers Bootstrap JS et dépendances -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<h2 class="ui header">Books</h2>
+<div class="ui cards">
+    {% for book in books %}
+    <div class="card">
+        <div class="content">
+            <div class="header">{{ book.title }}</div>
+            <div class="meta">{{ book.author }}</div>
+            <div class="description">{{ book.description }}</div>
+        </div>
+        <div class="extra content">
+            <a href="{% url 'order_book' book.id %}" class="ui button">Order</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

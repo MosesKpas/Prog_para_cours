@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Clients</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .client-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .client-item {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Liste des Clients et leurs Commandes</h1>
+<ul class="client-list">
+    {% for client in clients %}
+    <li class="client-item">
+        <strong>{{ client.id }} {{ client.nom }}</strong> - {{ client.email }}
+        <ul>
+            {% for commande in commandes %}
+                {% if commande.client == client %}
+                <li>
+                    <strong>Titre:</strong> {{ commande.livre_id }} - 
+                    <strong>Prix:</strong> {{ commande.prix }}$- 
+                    <strong>Date:</strong> {{ commande.date_commande|date:"d/m/Y H:i" }}
+                    <strong>email:</strong> {{ commande.email_client}}$- 
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+<div class="text-center">
+    <a href="{% url 'liste_livres' %}" class="btn btn-danger mt-3">Retour</a>
+</div>
+
+</body>
+</html>

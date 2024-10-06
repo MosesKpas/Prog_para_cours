@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Livres</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Couleur de fond */
+        }
+        h1 {
+            margin-top: 20px;
+            text-align: center; /* Centre le titre */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>Liste des Livres</h1>
+    <div class="row">
+        {% for livre in livres %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ livre.titre }}</h5>
+                    <p class="card-text">Auteur: {{ livre.auteur }}</p>
+                    <p class="card-text">Prix: {{ livre.prix }}€</p>
+                    <a href="{% url 'commande_livre' livre.id %}" class="btn btn-primary">Commander</a> <!-- Lien pour commander -->
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'login_client' %}" class="btn btn-secondary mt-3 d-block mx-auto">Connexion Client</a>
+</div>
+
+</body>
+</html>

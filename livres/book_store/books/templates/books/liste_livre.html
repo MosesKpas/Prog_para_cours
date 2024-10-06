@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tableau de Bord - FORCE.oneLib</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <style>
+            body {
+                background-color: #f8f9fa; /* Couleur de fond */
+                padding-top: 56px; /* Espace pour la navbar fixe */
+            }
+            .navbar {
+                background-color: #343a40;
+            }
+            .navbar-brand,
+            .nav-link {
+                color: #ffffff !important;
+            }
+            .navbar-nav .nav-link {
+                margin-right: 20px;
+            }
+            .card {
+                margin-bottom: 20px;
+            }
+            .btn-custom {
+                background-color: #007bff;
+                color: white;
+            }
+            .btn-custom:hover {
+                background-color: #0056b3;
+            }
+            .text-center-custom {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <a class="navbar-brand" href="#">FORCE.oneLib</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+
+        <div class="container mt-5">
+            <h1 class="text-center mb-4">Liste des Livres</h1>
+
+            <div class="mb-3 text-center">
+                <a href="{% url 'ajouter_livre' %}" class="btn btn-custom"
+                    >Ajouter un Livre</a
+                >
+            </div>
+
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Titre</th>
+                        <th>Auteur</th>
+                        <th>Prix</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for livre in livres %}
+                    <tr>
+                        <td>{{ livre.titre }}</td>
+                        <td>{{ livre.auteur }}</td>
+                        <td>{{ livre.prix }}$</td>
+                        <td class="text-center">
+                            <a
+                                href="{% url 'modifier_livre' livre.id %}"
+                                class="btn btn-warning btn-sm"
+                                >Modifier</a
+                            >
+                            <a
+                                href="{% url 'supprimer_livre' livre.id %}"
+                                class="btn btn-danger btn-sm"
+                                >Supprimer</a
+                            >
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="text-center mt-4">
+                <a href="{% url 'liste_clients' %}" class="btn btn-custom"
+                    >Voir les Clients</a
+                >
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
